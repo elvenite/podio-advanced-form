@@ -40,7 +40,7 @@ if (window.File && window.FileList){
 	 
 	// Validates the mail input and disable submit if mail is not valid
 	// and adds an errormessage popup
-	function validateOnInsert(error_message){
+function validateOnInsert(error_message){
 		// the Id of the mailfield
 	var mailId = '#161816262';
 	// Add textboxholder before mailfield
