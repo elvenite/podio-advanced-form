@@ -5,6 +5,7 @@
 		<title>Podio Advanced Form library</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="../assets/css/advanced-webform.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 <body>
 	
