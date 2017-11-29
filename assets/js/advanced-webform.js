@@ -37,3 +37,54 @@ if (window.File && window.FileList){
 		}
 	}
 }
+// Displays errormessage if the email is'nt valid
+function displayErrorTextforEmailField(){
+	
+	$('YOUR_EMAIL_FIELD_ID').before(function(){
+		return '<p class = "message" style ="float:right; color:#b63333; font-style: italic;font-size: 11px;"></p>';
+	     
+		});
+	
+	$('YOUR_EMAIL_FIELD_ID').keyup(function(){
+    var value = $(this).val();
+		if(!ValidateEmail(value)){
+			
+			$('.message').html('skal være en emailadresse');
+		}
+		  else if(ValidateEmail(value)){
+			$('.message').html('');
+			$(this).css("background-color","white");
+		  }
+		 
+ });
+	 
+		
+	 }
+	 
+  function ValidateEmail(mail)   
+    {  
+     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))  
+      {  
+        return (true);  
+      }  
+         
+        return (false);  
+    }
+	// Validates the mail input and disable submit if mail is not valid
+	function validateOnInsert(){
+		
+    $('input[name=email]').on('input', function() {
+	var input=$(this);
+	
+	var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	var is_email=re.test(input.val());
+	if(is_email){
+		input.removeClass("invalid").addClass("valid");
+		$('.enableOnInput').prop('disabled', false);
+	}
+	else{
+		input.removeClass("valid").addClass("invalid");
+		$('.enableOnInput').prop('disabled', true);
+	}
+	});
+	}
