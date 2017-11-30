@@ -37,3 +37,41 @@ if (window.File && window.FileList){
 		}
 	}
 }
+	 
+	// Validates the mail input and disable submit if mail is not valid
+	// and adds an errormessage popup
+function validateOnInsert(error_message){
+		// the Id of the mailfield
+	var mailId = '#161816262';
+	// Add textboxholder before mailfield
+	$(mailId).before(function(){
+	return '<p class = "message" style ="float:right; color:#b63333; font-style: italic;font-size: 11px;"></p>';
+	     
+	});	
+		// Check email input value		
+    $('input[name=email]').on('input', function() {
+		
+	var input=$(this);
+	   //regular expression checiking input value
+	var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	var is_email=re.test(input.val());
+	if(is_email){
+		// Add a class named valid and remove invalid class
+		input.removeClass("invalid").addClass("valid");
+		// Enable submit button
+		$('.enableOnInput').prop('disabled', false);
+		// clear message field
+		$('.message').html('');
+		// Set message field color to white
+		$(mailId).css("background-color","white");
+	}
+	else{
+		// Add a class named invalid and remove valid class
+		input.removeClass("valid").addClass("invalid");
+		//Display error message
+		$('.message').html(error_message);
+		// Disable submit button
+		$('.enableOnInput').prop('disabled', true);
+	}
+	});
+	}
