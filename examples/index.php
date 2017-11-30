@@ -47,5 +47,16 @@ if ($_POST){
 }
 
 require 'header.php';
+?>
+<script> 
+	//clear the emailfield if browser is refreshed
+	$('YOUR_EMAIL_ID').val('');
+ 	// Validates the mail input and disable submit if mail is not valid,
+	// and shows an error_message. 
+	validateOnInsert('Not an emailaddress');
+	
+</script>
+
+<?php
 require 'content.php';
 require 'footer.php';
